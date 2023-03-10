@@ -21,7 +21,6 @@
 #include "fatfs.h"
 #include "i2c.h"
 #include "spi.h"
-#include "usart.h"
 #include "usb.h"
 #include "gpio.h"
 
@@ -64,14 +63,15 @@ void myprintf(const char *fmt, ...);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void myprintf(const char *fmt, ...) {
-  static char buffer[256];
-  va_list args;
-  va_start(args, fmt);
-  vsnprintf(buffer, sizeof(buffer), fmt, args);
-  va_end(args);
-
-  int len = strlen(buffer);
-  HAL_UART_Transmit(&huart4, (uint8_t*)buffer, len, -1);
+//  static char buffer[256];
+//  va_list args;
+//  va_start(args, fmt);
+//  vsnprintf(buffer, sizeof(buffer), fmt, args);
+//  va_end(args);
+//
+//  int len = strlen(buffer);
+//  HAL_UART_Transmit(&huart4, (uint8_t*)buffer, len, -1);
+	// 3/10/2023: Cant use UART4 since it has pin conflicts with I2S3.
 
 }
 /* USER CODE END 0 */
@@ -107,7 +107,6 @@ int main(void)
   MX_I2C1_Init();
   MX_USB_PCD_Init();
   MX_FATFS_Init();
-  MX_UART4_Init();
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
   myprintf("\r\n~ SD card demo by kiwih ~\r\n\r\n");
@@ -244,9 +243,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB|RCC_PERIPHCLK_UART4
-                              |RCC_PERIPHCLK_I2C1;
-  PeriphClkInit.Uart4ClockSelection = RCC_UART4CLKSOURCE_PCLK1;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB|RCC_PERIPHCLK_I2C1;
   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
   PeriphClkInit.USBClockSelection = RCC_USBCLKSOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)

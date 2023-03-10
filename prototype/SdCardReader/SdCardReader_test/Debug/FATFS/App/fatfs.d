@@ -32,8 +32,6 @@ FATFS/App/fatfs.o: ../FATFS/App/fatfs.c ../FATFS/App/fatfs.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
  ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/user_diskio.h
@@ -73,8 +71,6 @@ FATFS/App/fatfs.o: ../FATFS/App/fatfs.c ../FATFS/App/fatfs.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
 ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
 ../Middlewares/Third_Party/FatFs/src/diskio.h:
 ../Middlewares/Third_Party/FatFs/src/ff.h:
